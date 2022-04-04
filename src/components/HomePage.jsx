@@ -1,11 +1,24 @@
 import React from "react";
 // Import Swiper React components
-import { useGetJokesQuery } from "../services/movieApi";
+import { Swiper, SwiperSlide } from "swiper/react";
+import {
+  useGetJokesQuery,
+  useGetPopularMoviesQuery,
+} from "../services/movieApi";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
 
 // import Swiper core and required modules
+import MovieCard from "./movieCard/MovieCard";
+import SwiperCore, { Pagination } from "swiper";
+import DropDownList from "./DropDownList";
 import Loading from "./Loading";
+import SearchBox from "./SearchBox";
 
 // install Swiper modules
+SwiperCore.use([Pagination]);
 const HomePage = () => {
   const { data, isFetching } = useGetJokesQuery({});
 
